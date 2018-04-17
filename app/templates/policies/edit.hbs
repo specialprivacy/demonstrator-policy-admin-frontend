@@ -1,0 +1,28 @@
+<div>
+  {{#power-select placeholder="Select a data collection value" options=dataCollections selected=selectedDataCollection onchange=(action "set" "dataCollection") as |collection|}}
+    {{collection.label}}
+  {{/power-select}}
+
+  {{#power-select placeholder="Select a location collection value" options=locationCollections selected=selectedLocationCollection onchange=(action "set" "locationCollection") as |collection|}}
+    {{collection.label}}
+  {{/power-select}}
+
+  {{#power-select placeholder="Select a process collection value" options=processCollections selected=selectedProcessCollection onchange=(action "set" "processCollection") as |collection|}}
+    {{collection.label}}
+  {{/power-select}}
+
+  {{#power-select placeholder="Select a purpose collection value" options=purposeCollections selected=selectedPurposeCollection onchange=(action "set" "purposeCollection") as |collection|}}
+    {{collection.label}}
+  {{/power-select}}
+
+  {{#power-select placeholder="Select a recipient collection value" options=recipientCollections selected=selectedRecipientCollection onchange=(action "set" "recipientCollection") as |collection|}}
+    {{collection.label}}
+  {{/power-select}}
+</div>
+
+<div class="footer">
+  <button {{action "save"}}>Save changes</button>
+  <button {{action "cancel"}}>Cancel</button>
+</div>
+
+{{outlet}}

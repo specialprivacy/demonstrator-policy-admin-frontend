@@ -1,0 +1,37 @@
+<table>
+  <tr>
+    {{#if showId}}
+      <th>
+        #
+      </th>
+    {{/if}}
+    <th>
+      Name
+    </th>
+    <th>
+      Actions
+    </th>
+  </tr>
+  {{#each model as |application|}}
+    {{#if application.id}}
+      <tr>
+        {{#if showId}}
+          <td>
+            {{application.id}}
+          </td>
+        {{/if}}
+        <td>
+          {{application.name}}
+        </td>
+        <td>
+          <button {{action "edit" application}}>Edit</button>
+          <button {{action "delete" application}}>Delete</button>
+        </td>
+      </tr>
+    {{/if}}
+  {{/each}}
+</table>
+
+<button {{action "create"}}>Create new application</button>
+
+{{outlet}}

@@ -1,0 +1,61 @@
+<table>
+  <tr>
+    {{#if showId}}
+      <th>
+        #
+      </th>
+    {{/if}}
+    <th>
+      Data
+    </th>
+    <th>
+      Location
+    </th>
+    <th>
+      Process
+    </th>
+    <th>
+      Purpose
+    </th>
+    <th>
+      Recipient
+    </th>
+    <th>
+      Actions
+    </th>
+  </tr>
+  {{#each model as |policy|}}
+    {{#if policy.id}}
+      <tr>
+        {{#if showId}}
+          <td>
+            {{policy.id}}
+          </td>
+        {{/if}}
+        <td>
+          {{get-label-from-value-in-collection array=dataCollections value=policy.dataCollection}}
+        </td>
+        <td>
+          {{get-label-from-value-in-collection array=locationCollections value=policy.locationCollection}}
+        </td>
+        <td>
+          {{get-label-from-value-in-collection array=processCollections value=policy.processCollection}}
+        </td>
+        <td>
+          {{get-label-from-value-in-collection array=purposeCollections value=policy.purposeCollection}}
+        </td>
+        <td>
+          {{get-label-from-value-in-collection array=recipientCollections value=policy.recipientCollection}}
+        </td>
+        <td>
+          <button {{action "edit" policy}}>Edit</button>
+          <button {{action "delete" policy}}>Delete</button>
+        </td>
+      </tr>
+    {{/if}}
+  {{/each}}
+</table>
+
+<button {{action "create"}}>Create new policy</button>
+
+{{outlet}}

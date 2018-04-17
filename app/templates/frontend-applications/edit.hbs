@@ -1,0 +1,37 @@
+<div class="left">
+  <div>
+    <label>Name</label>{{input type="text" value=model.name}}
+  </div>
+  <div>
+    <label>Policies</label>
+    <ul>
+      {{#each model.policies as |policy|}}
+        <li>
+          <button {{action "removePolicy" policy}}>-</button><span>{{policy.id}}</span>
+        </li>
+      {{else}}
+        <li>No policies specified.</li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
+
+<div class="right">
+  <label>Add policies</label>
+  <ul>
+    {{#each (await filteredPolicies) as |policy|}}
+      <li>
+        <button {{action "addPolicy" policy}}>+</button><span>{{policy.id}}</span>
+      </li>
+    {{else}}
+      <li>No policies to add.</li>
+    {{/each}}
+  </ul>
+</div>
+
+<div class="footer">
+  <button {{action "save"}}>Save changes</button>
+  <button {{action "cancel"}}>Cancel</button>
+</div>
+
+{{outlet}}
