@@ -10,7 +10,7 @@
   {{#table.body as |body|}}
     {{#each model as |application|}}
       {{#if application.id}}
-        {{#body.row  as |row|}}
+        {{#body.row as |row|}}
           {{#if showId}}
             {{#row.cell}}
               {{application.id}}
@@ -20,18 +20,16 @@
             {{application.name}}
           {{/row.cell}}
           {{#row.cell}}
-            <button {{action "edit" application}}>Edit</button>
-          {{/row.cell}}
-          {{#row.cell}}
-            <button {{action "delete" application}}>Delete</button>
+            {{#paper-button onClick=(action "edit" application) noink=true primary=true raised=true}}Edit{{/paper-button}}
+            {{#paper-button onClick=(action "delete" application) noink=true primary=true raised=true}}Delete{{/paper-button}}
           {{/row.cell}}
         {{/body.row}}
       {{/if}}
     {{/each}}
 
-    {{#body.row  as |row|}}
+    {{#body.row as |row|}}
       {{#row.cell}}
-        <button {{action "create"}}>Create new application</button> {{outlet}}
+        {{#paper-button onClick=(action "create") noink=true primary=true raised=true}}Create new application{{/paper-button}}
       {{/row.cell}}
       {{#row.cell}}
       {{/row.cell}}
@@ -40,3 +38,8 @@
     {{/body.row}}
   {{/table.body}}
 {{/paper-data-table}}
+
+
+
+
+{{outlet}}
