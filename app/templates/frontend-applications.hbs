@@ -1,37 +1,42 @@
-<table>
-  <tr>
+{{#paper-data-table as |table|}}
+  {{#table.head as |head|}}
     {{#if showId}}
-      <th>
-        #
-      </th>
+      {{#head.column}}#{{/head.column}}
     {{/if}}
-    <th>
-      Name
-    </th>
-    <th>
-      Actions
-    </th>
-  </tr>
-  {{#each model as |application|}}
-    {{#if application.id}}
-      <tr>
-        {{#if showId}}
-          <td>
-            {{application.id}}
-          </td>
-        {{/if}}
-        <td>
-          {{application.name}}
-        </td>
-        <td>
-          <button {{action "edit" application}}>Edit</button>
-          <button {{action "delete" application}}>Delete</button>
-        </td>
-      </tr>
-    {{/if}}
-  {{/each}}
-</table>
+    {{#head.column}}Name{{/head.column}}
+    {{#head.column}}Actions{{/head.column}}
 
-<button {{action "create"}}>Create new application</button>
+  {{/table.head}}
+  {{#table.body as |body|}}
+    {{#each model as |application|}}
+      {{#if application.id}}
+        {{#body.row  as |row|}}
+          {{#if showId}}
+            {{#row.cell}}
+              {{application.id}}
+            {{/row.cell}}
+          {{/if}}
+          {{#row.cell}}
+            {{application.name}}
+          {{/row.cell}}
+          {{#row.cell}}
+            <button {{action "edit" application}}>Edit</button>
+          {{/row.cell}}
+          {{#row.cell}}
+            <button {{action "delete" application}}>Delete</button>
+          {{/row.cell}}
+        {{/body.row}}
+      {{/if}}
+    {{/each}}
 
-{{outlet}}
+    {{#body.row  as |row|}}
+      {{#row.cell}}
+        <button {{action "create"}}>Create new application</button> {{outlet}}
+      {{/row.cell}}
+      {{#row.cell}}
+      {{/row.cell}}
+      {{#row.cell}}
+      {{/row.cell}}
+    {{/body.row}}
+  {{/table.body}}
+{{/paper-data-table}}
