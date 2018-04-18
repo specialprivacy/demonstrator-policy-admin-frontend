@@ -1,5 +1,9 @@
-<ul class="nav-bar">
-  {{#link-to "frontendApplications" tagName="li"}}Applications{{/link-to}}
-  {{#link-to "policies" tagName="li"}}Policies{{/link-to}}
-</ul>
+{{#paper-toolbar}}
+  {{#paper-toolbar-tools}}
+    <span class="flex"></span>
+    {{#link-to "frontendApplications" tagName="button" class="md-default-theme md-button md-ink-ripple" }}Applications{{/link-to}}
+    {{#link-to "policies" tagName="button" class="md-default-theme md-button md-ink-ripple" }}Policies{{/link-to}}
+  {{/paper-toolbar-tools}}
+{{/paper-toolbar}}
+
 {{outlet}}
