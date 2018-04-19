@@ -1,61 +1,70 @@
-<table>
-  <tr>
+{{#paper-data-table as |table|}}
+  {{#table.head as |head|}}
+    {{#head.column}}#{{/head.column}}
     {{#if showId}}
-      <th>
-        #
-      </th>
+      {{#head.column}}Id{{/head.column}}
     {{/if}}
-    <th>
-      Data
-    </th>
-    <th>
-      Location
-    </th>
-    <th>
-      Process
-    </th>
-    <th>
-      Purpose
-    </th>
-    <th>
-      Recipient
-    </th>
-    <th>
-      Actions
-    </th>
-  </tr>
-  {{#each model as |policy|}}
-    {{#if policy.id}}
-      <tr>
-        {{#if showId}}
-          <td>
-            {{policy.id}}
-          </td>
-        {{/if}}
-        <td>
-          {{get-label-from-value-in-collection array=dataCollections value=policy.dataCollection}}
-        </td>
-        <td>
-          {{get-label-from-value-in-collection array=locationCollections value=policy.locationCollection}}
-        </td>
-        <td>
-          {{get-label-from-value-in-collection array=processCollections value=policy.processCollection}}
-        </td>
-        <td>
-          {{get-label-from-value-in-collection array=purposeCollections value=policy.purposeCollection}}
-        </td>
-        <td>
-          {{get-label-from-value-in-collection array=recipientCollections value=policy.recipientCollection}}
-        </td>
-        <td>
-          <button {{action "edit" policy}}>Edit</button>
-          <button {{action "delete" policy}}>Delete</button>
-        </td>
-      </tr>
-    {{/if}}
-  {{/each}}
-</table>
+    {{#head.column}}Data{{/head.column}}
+    {{#head.column}}Location{{/head.column}}
+    {{#head.column}}Process{{/head.column}}
+    {{#head.column}}Purpose{{/head.column}}
+    {{#head.column}}Recipient{{/head.column}}
+    {{#head.column}}Actions{{/head.column}}
 
-<button {{action "create"}}>Create new policy</button>
+  {{/table.head}}
+  {{#table.body as |body|}}
+    {{#each model as |policy index|}}
+      {{#if policy.id}}
+        {{#body.row as |row|}}
+          {{#row.cell}}
+            {{add 1 index}}
+          {{/row.cell}}
+          {{#if showId}}
+            {{#row.cell}}
+              {{policy.id}}
+            {{/row.cell}}
+          {{/if}}
+          {{#row.cell}}
+            {{get-label-from-value-in-collection array=dataCollections value=policy.dataCollection}}
+          {{/row.cell}}
+          {{#row.cell}}
+            {{get-label-from-value-in-collection array=locationCollections value=policy.locationCollection}}
+          {{/row.cell}}
+          {{#row.cell}}
+            {{get-label-from-value-in-collection array=processCollections value=policy.processCollection}}
+          {{/row.cell}}
+          {{#row.cell}}
+            {{get-label-from-value-in-collection array=purposeCollections value=policy.purposeCollection}}
+          {{/row.cell}}
+          {{#row.cell}}
+            {{get-label-from-value-in-collection array=recipientCollections value=policy.recipientCollection}}
+          {{/row.cell}}
+          {{#row.cell}}
+            {{#paper-button onClick=(action "edit" policy) noink=true primary=true raised=true}}Edit{{/paper-button}}
+            {{#paper-button onClick=(action "delete" policy) noink=true primary=true raised=true}}Delete{{/paper-button}}
+          {{/row.cell}}
+        {{/body.row}}
+      {{/if}}
+    {{/each}}
+
+    {{#body.row as |row|}}
+      {{!-- row number --}}
+      {{row.cell}}
+        {{!-- for id --}}
+        {{#if showId}}
+          {{row.cell}}
+        {{/if}}
+        {{!-- for other cells --}}
+        {{row.cell}}
+        {{row.cell}}
+        {{row.cell}}
+        {{row.cell}}
+        {{row.cell}}
+        {{#row.cell}}
+          {{#paper-button onClick=(action "create") noink=true primary=true raised=true}}Create new policy{{/paper-button}}
+        {{/row.cell}}
+    {{/body.row}}
+  {{/table.body}}
+{{/paper-data-table}}
 
 {{outlet}}
