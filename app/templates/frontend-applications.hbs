@@ -38,11 +38,11 @@
       {{#if showId}}
         {{row.cell}}
       {{/if}}
+      {{!-- for the actions --}}
+      {{row.cell}}
       {{#row.cell}}
         {{#paper-button onClick=(action "create") noink=true primary=true raised=true}}Create new application{{/paper-button}}
       {{/row.cell}}
-      {{!-- for the actions --}}
-      {{row.cell}}
     {{/body.row}}
   {{/table.body}}
 {{/paper-data-table}}
