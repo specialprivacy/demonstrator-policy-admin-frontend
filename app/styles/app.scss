@@ -2,7 +2,9 @@
 @import 'ember-paper';
 @import 'paper-data-table';
 
-
+html {
+  overflow-y: scroll;
+}
 .md-table {
   width: 90% !important;
   margin: 3% auto;
