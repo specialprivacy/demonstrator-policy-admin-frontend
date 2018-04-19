@@ -1,16 +1,20 @@
 {{#paper-data-table as |table|}}
   {{#table.head as |head|}}
+  {{#head.column}}#{{/head.column}}
     {{#if showId}}
-      {{#head.column}}#{{/head.column}}
+      {{#head.column}}Id{{/head.column}}
     {{/if}}
     {{#head.column}}Name{{/head.column}}
     {{#head.column}}Actions{{/head.column}}
 
   {{/table.head}}
   {{#table.body as |body|}}
-    {{#each model as |application|}}
+    {{#each model as |application index|}}
       {{#if application.id}}
         {{#body.row as |row|}}
+          {{#row.cell}}
+            {{add 1 index}}
+          {{/row.cell}}
           {{#if showId}}
             {{#row.cell}}
               {{application.id}}
@@ -28,13 +32,17 @@
     {{/each}}
 
     {{#body.row as |row|}}
+      {{!-- row number --}}
+      {{row.cell}}
+      {{!-- for id --}}
+      {{#if showId}}
+        {{row.cell}}
+      {{/if}}
       {{#row.cell}}
         {{#paper-button onClick=(action "create") noink=true primary=true raised=true}}Create new application{{/paper-button}}
       {{/row.cell}}
-      {{#row.cell}}
-      {{/row.cell}}
-      {{#row.cell}}
-      {{/row.cell}}
+      {{!-- for the actions --}}
+      {{row.cell}}
     {{/body.row}}
   {{/table.body}}
 {{/paper-data-table}}
