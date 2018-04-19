@@ -40,3 +40,21 @@ html {
     }
   }
 }
+
+
+
+.policy-editor {
+  width: 80%;
+  height: 80%;
+
+  &_selector {
+    &Label {
+      min-width: 10%;
+    }
+
+    &PowerSelector {
+      width: 100%;
+    }
+
+  }
+}

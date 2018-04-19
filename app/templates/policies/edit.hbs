@@ -1,28 +1,79 @@
-<div>
-  {{#power-select placeholder="Select a data collection value" options=dataCollections selected=selectedDataCollection onchange=(action "set" "dataCollection") as |collection|}}
-    {{collection.label}}
-  {{/power-select}}
+{{#paper-dialog onClose=(action "cancel") origin=dialogOrigin clickOutsideToClose=true class="policy-editor" }}
+  {{#paper-toolbar}}
+    {{#paper-toolbar-tools}}
+      <h2>Edit policy</h2>
+      <span class="flex"></span>
+      {{#paper-button iconButton=true onClick=(action "cancel")}}{{paper-icon icon="close"}}{{/paper-button}}
+    {{/paper-toolbar-tools}}
+  {{/paper-toolbar}}
 
-  {{#power-select placeholder="Select a location collection value" options=locationCollections selected=selectedLocationCollection onchange=(action "set" "locationCollection") as |collection|}}
-    {{collection.label}}
-  {{/power-select}}
+  {{#paper-dialog-content class="policy-editor_content" }}
+    {{#paper-list}}
+      {{#paper-item class="policy-editor_selectorBlock" }}
+        <div class="policy-editor_selectorLabel">
+          <p>Pata</p>
+        </div>
+        <div class="policy-editor_selectorPowerSelector">
+          {{#power-select placeholder="Select a data collection value" options=dataCollections selected=selectedDataCollection onchange=(action "set" "dataCollection") as |collection|}}
+            {{collection.label}}
+          {{/power-select}}
+        </div>
+      {{/paper-item}}
+      {{paper-divider}}
 
-  {{#power-select placeholder="Select a process collection value" options=processCollections selected=selectedProcessCollection onchange=(action "set" "processCollection") as |collection|}}
-    {{collection.label}}
-  {{/power-select}}
+      {{#paper-item class="policy-editor_selectorBlock" }}
+        <div class="policy-editor_selectorLabel">
+          <p>Location</p>
+        </div>
+        <div class="policy-editor_selectorPowerSelector">
+          {{#power-select placeholder="Select a location collection value" options=locationCollections selected=selectedLocationCollection onchange=(action "set" "locationCollection") as |collection|}}
+            {{collection.label}}
+          {{/power-select}}
+        </div>
+      {{/paper-item}}
+      {{paper-divider}}
 
-  {{#power-select placeholder="Select a purpose collection value" options=purposeCollections selected=selectedPurposeCollection onchange=(action "set" "purposeCollection") as |collection|}}
-    {{collection.label}}
-  {{/power-select}}
+      {{#paper-item class="policy-editor_selectorBlock" }}
+        <div class="policy-editor_selectorLabel">
+          <p>Process</p>
+        </div>
+        <div class="policy-editor_selectorPowerSelector">
+          {{#power-select placeholder="Select a process collection value" options=processCollections selected=selectedProcessCollection onchange=(action "set" "processCollection") as |collection|}}
+            {{collection.label}}
+          {{/power-select}}
+        </div>
+      {{/paper-item}}
+      {{paper-divider}}
 
-  {{#power-select placeholder="Select a recipient collection value" options=recipientCollections selected=selectedRecipientCollection onchange=(action "set" "recipientCollection") as |collection|}}
-    {{collection.label}}
-  {{/power-select}}
-</div>
+      {{#paper-item class="policy-editor_selectorBlock" }}
+        <div class="policy-editor_selectorLabel">
+          <p>Purpose</p>
+        </div>
+        <div class="policy-editor_selectorPowerSelector">
+          {{#power-select placeholder="Select a purpose collection value" options=purposeCollections selected=selectedPurposeCollection onchange=(action "set" "purposeCollection") as |collection|}}
+            {{collection.label}}
+          {{/power-select}}
+        </div>
+      {{/paper-item}}
+      {{paper-divider}}
 
-<div class="footer">
-  <button {{action "save"}}>Save changes</button>
-  <button {{action "cancel"}}>Cancel</button>
-</div>
+      {{#paper-item class="policy-editor_selectorBlock" }}
+        <div class="policy-editor_selectorLabel ">
+          <p>Recipient</p>
+        </div>
+        <div class="policy-editor_selectorPowerSelector">
+          {{#power-select placeholder="Select a recipient collection value" options=recipientCollections selected=selectedRecipientCollection onchange=(action "set" "recipientCollection") as |collection|}}
+            {{collection.label}}
+          {{/power-select}}
+        </div>
+      {{/paper-item}}
+      {{paper-divider}}
+    {{/paper-list}}
+  {{/paper-dialog-content}}
 
-{{outlet}}
+  {{#paper-dialog-actions class="layout-row" }}
+    <span class="flex"></span>
+    {{#paper-button onClick=(action "cancel") noink=true primary=true }}Cancel{{/paper-button}}
+    {{#paper-button onClick=(action "save") noink=true primary=true }}Save policy{{/paper-button}}
+  {{/paper-dialog-actions}}
+{{/paper-dialog}}
