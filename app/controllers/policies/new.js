@@ -33,12 +33,8 @@ export default Controller.extend({
       });
     },
     cancel: function () {
-      this.get("model").reload()
-        .then(model => {
-          return model.rollbackAttributes();
-        }).then(() => {
-        this.transitionToRoute("policies");
-      });
+      this.get("model").destroyRecord();
+      this.transitionToRoute("policies");
     }
   }
 });

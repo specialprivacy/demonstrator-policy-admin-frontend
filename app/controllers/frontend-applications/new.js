@@ -24,13 +24,8 @@ export default Controller.extend({
       });
     },
     cancel: function(){
-      this.get("model").reload()
-        .then(model => {
-          model.rollbackAttributes();
-          return model.get("policies").reload();
-        }).then(() => {
-        this.transitionToRoute("frontendApplications");
-      });
+      this.get("model").destroyRecord();
+      this.transitionToRoute("frontendApplications");
     },
     addPolicy: function(policy){
       this.get("model").get("policies").then(policies => {
