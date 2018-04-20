@@ -4,6 +4,7 @@
     {{#if showId}}
       {{#head.column}}Id{{/head.column}}
     {{/if}}
+    {{#head.column}}Explanation{{/head.column}}
     {{#head.column}}Data{{/head.column}}
     {{#head.column}}Location{{/head.column}}
     {{#head.column}}Process{{/head.column}}
@@ -24,6 +25,9 @@
               {{policy.id}}
             {{/row.cell}}
           {{/if}}
+          {{#row.cell}}
+            {{policy.explanation}}
+          {{/row.cell}}
           {{#row.cell}}
             {{get-label-from-value-in-collection array=dataCollections value=policy.dataCollection}}
           {{/row.cell}}

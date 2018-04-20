@@ -11,6 +11,16 @@
     {{#paper-list}}
       {{#paper-item class="policy-editor_selectorBlock" }}
         <div class="policy-editor_selectorLabel">
+          <p>Explanation</p>
+        </div>
+        <div class="policy-editor_textArea">
+          {{textarea value=model.explanation}}
+        </div>
+      {{/paper-item}}
+      {{paper-divider}}
+
+      {{#paper-item class="policy-editor_selectorBlock" }}
+        <div class="policy-editor_selectorLabel">
           <p>Data</p>
         </div>
         <div class="policy-editor_selectorPowerSelector">

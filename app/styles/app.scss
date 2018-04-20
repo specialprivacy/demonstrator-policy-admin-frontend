@@ -47,6 +47,14 @@ html {
   width: 80%;
   height: 80%;
 
+  &_textArea {
+    width: 100%;
+    textarea{
+      width: 100%;
+      resize: vertical;
+    }
+  }
+
   &_selector {
     &Label {
       min-width: 10%;
