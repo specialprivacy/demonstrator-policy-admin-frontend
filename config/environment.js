@@ -4,7 +4,7 @@ module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'data-controller-policy-management-frontend',
     environment,
-    rootURL: '/',
+    rootURL: 'policy-crud/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
