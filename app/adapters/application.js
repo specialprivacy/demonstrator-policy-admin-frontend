@@ -5,8 +5,9 @@ export default DS.RESTAdapter.extend({
     console.log(`status: ${status}`)
     console.log(`headers: ${JSON.stringify(headers)}`)
     if (status === 401) {
-      if(headers.Location){
-        return window.location.replace(headers.Location);
+      const locationHeader = headers.location || headers.Location || headers.LOCATION
+      if (locationHeader) {
+        return window.location.replace(locationHeader);
       }
     }
     return this._super(...arguments);
