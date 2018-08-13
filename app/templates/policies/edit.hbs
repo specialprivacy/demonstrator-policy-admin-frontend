@@ -33,7 +33,7 @@
 
       {{#paper-item class="policy-editor_selectorBlock" }}
         <div class="policy-editor_selectorLabel">
-          <p>Location</p>
+          <p>Storage</p>
         </div>
         <div class="policy-editor_selectorPowerSelector">
           {{#power-select placeholder="Select a storage collection value" options=storageCollections selected=selectedStorageCollection onchange=(action "set" "storageCollection") as |collection|}}
@@ -45,7 +45,7 @@
 
       {{#paper-item class="policy-editor_selectorBlock" }}
         <div class="policy-editor_selectorLabel">
-          <p>Process</p>
+          <p>Processing</p>
         </div>
         <div class="policy-editor_selectorPowerSelector">
           {{#power-select placeholder="Select a processing collection value" options=processingCollections selected=selectedProcessingCollection onchange=(action "set" "processingCollection") as |collection|}}
