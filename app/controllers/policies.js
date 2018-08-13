@@ -3,8 +3,8 @@ import Controller from '@ember/controller';
 export default Controller.extend({
   collections: Ember.inject.service(),
   dataCollections: Ember.computed.alias("collections.dataCollections"),
-  locationCollections: Ember.computed.alias("collections.locationCollections"),
-  processCollections: Ember.computed.alias("collections.processCollections"),
+  storageCollections: Ember.computed.alias("collections.storageCollections"),
+  processingCollections: Ember.computed.alias("collections.processingCollections"),
   purposeCollections: Ember.computed.alias("collections.purposeCollections"),
   recipientCollections: Ember.computed.alias("collections.recipientCollections"),
 

@@ -36,7 +36,7 @@
           <p>Location</p>
         </div>
         <div class="policy-editor_selectorPowerSelector">
-          {{#power-select placeholder="Select a location collection value" options=locationCollections selected=selectedLocationCollection onchange=(action "set" "locationCollection") as |collection|}}
+          {{#power-select placeholder="Select a storage collection value" options=storageCollections selected=selectedStorageCollection onchange=(action "set" "storageCollection") as |collection|}}
             {{collection.label}}
           {{/power-select}}
         </div>
@@ -48,7 +48,7 @@
           <p>Process</p>
         </div>
         <div class="policy-editor_selectorPowerSelector">
-          {{#power-select placeholder="Select a process collection value" options=processCollections selected=selectedProcessCollection onchange=(action "set" "processCollection") as |collection|}}
+          {{#power-select placeholder="Select a processing collection value" options=processingCollections selected=selectedProcessingCollection onchange=(action "set" "processingCollection") as |collection|}}
             {{collection.label}}
           {{/power-select}}
         </div>

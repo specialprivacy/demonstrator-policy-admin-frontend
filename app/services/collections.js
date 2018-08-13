@@ -32,7 +32,7 @@ export default Service.extend({
     {"label":"UniqueId", "value":"http://www.specialprivacy.eu/vocabs/data#UniqueId"}
   ],
 
-  locationCollections: [
+  storageCollections: [
     {"label": "AnyLocation", "value": "http://www.specialprivacy.eu/langs/usage-policy#AnyLocation"},
     {"label": "ControllerServers", "value": "http://www.specialprivacy.eu/vocabs/locations#ControllerServers"},
     {"label": "EU", "value": "http://www.specialprivacy.eu/vocabs/locations#EU"},
@@ -43,7 +43,7 @@ export default Service.extend({
     {"label": "ThirdParty", "value": "http://www.specialprivacy.eu/vocabs/locations#ThirdParty"}
   ],
 
-  processCollections: [
+  processingCollections: [
     {"label": "AnyProcessing", "value": "http://www.specialprivacy.eu/langs/usage-policy#AnyProcessing"},
     {"label": "Aggregate", "value": "http://www.specialprivacy.eu/vocabs/processing#Aggregate"},
     {"label": "Analyze", "value": "http://www.specialprivacy.eu/vocabs/processing#Analyze"},
@@ -100,5 +100,5 @@ export default Service.extend({
     {"label": "Same", "value": "http://www.specialprivacy.eu/vocabs/recipientsSame"},
     {"label": "Unrelated", "value": "http://www.specialprivacy.eu/vocabs/recipientsUnrelated"}
   ]
-  
+
 });
